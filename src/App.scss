@@ -1,4 +1,11 @@
 .App {
-  background-color: red;
-  height: 100vh;
+    background-image: url('./assets/background.jpg');
+    height: 100vh;
+    padding: 20px;
+
+    .forecast {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+    }
 }
