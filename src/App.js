@@ -1,9 +1,10 @@
 import './App.scss';
 import { useState, useEffect } from 'react';
-import DailyForecast from './components/DailyForecast/DailyForecast';
+import DailyForecast from './components/DailyForecast';
+import TodayForecast from './components/TodayForecast';
 
 const App = () => {
-  const [city, setCity] = useState('Świebodzice');
+  const [city, setCity] = useState('Yakutsk');
   const [cityCoord, setCityCoord] = useState(null);
   const [cityData, setCityData] = useState(null);
 
@@ -44,11 +45,14 @@ const App = () => {
     )
   }
 
-  // console.log(cityCoord);
+  console.log(cityCoord);
   console.log(cityData);
 
   return (
     <div className="App">
+      <div className='today'>
+        {cityData ? <TodayForecast data={cityData}/> : null}
+      </div>
       <div className='forecast'>
         {cityData ? renderFiveDays() : null}
       </div>

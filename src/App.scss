@@ -1,7 +1,18 @@
+@import 'main.scss';
+
 .App {
     background-image: url('./assets/background.jpg');
+    background-position: center;
+    background-size: cover;
     height: 100vh;
     padding: 20px;
+
+    .today {
+        width: 75vw;
+        margin: 0 auto; 
+        border: 1px solid $main-color;
+        border-radius: 5px;
+    }
 
     .forecast {
         margin: 0 auto;
