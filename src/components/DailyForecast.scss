@@ -1,7 +1,29 @@
 @import 'main.scss';
 
 .daily-forecast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 15vw;
+    padding: 15px 0;
     border: 1px solid $main-color;
     border-radius: 5px;
+
+    .week-day {
+        padding: 5px 15px;
+        border: 1px solid $main-color;
+        border-radius: 7px;
+    }
+
+    .general {
+        font-weight: 600;
+
+        span:first-child {
+            color: $day-color;
+        }
+
+        span:last-child {
+            color: $night-color;
+        }
+    }
 }

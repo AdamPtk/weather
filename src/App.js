@@ -51,7 +51,7 @@ const App = () => {
   return (
     <div className="App">
       <div className='today'>
-        {cityData ? <TodayForecast data={cityData}/> : null}
+        {cityData ? <TodayForecast data={cityData} location={cityCoord.name}/> : null}
       </div>
       <div className='forecast'>
         {cityData ? renderFiveDays() : null}

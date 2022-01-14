@@ -4,8 +4,12 @@
     background-image: url('./assets/background.jpg');
     background-position: center;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
-    padding: 20px;
+    font-family: 'Roboto', sans-serif;
+    color: $main-color;
 
     .today {
         width: 75vw;
@@ -15,8 +19,9 @@
     }
 
     .forecast {
-        margin: 0 auto;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
+        background-color: $bg-color;
+        padding: 30px 10vw;
     }
 }

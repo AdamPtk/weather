@@ -32,11 +32,11 @@ const DailyForecast = ({data}) => {
 
     return (
         <div className='daily-forecast'>
-            <p>{renderDayName()}</p>
+            <p className='week-day'>{renderDayName()}</p>
             <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="weather-icon"/>
-            <p><span>{renderTemp(data.temp.day)}°C</span><span>{renderTemp(data.temp.night)}°C</span></p>
-            <p>{renderTemp(data.temp.morn)}°C</p>
-            <p>{data.humidity}%</p>
+            <p className='general'><span>{renderTemp(data.temp.day)}°C</span> <span>{renderTemp(data.temp.night)}°C</span></p>
+            <p>Morning: {renderTemp(data.temp.morn)}°C</p>
+            <p>Humidity: {data.humidity}%</p>
         </div>
     )
 }
