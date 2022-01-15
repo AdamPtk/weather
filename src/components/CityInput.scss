@@ -1,0 +1,15 @@
+@import 'main.scss';
+
+label {
+    // color: $secondary-color;
+    // font-weight: 600;
+}
+
+input[type="text"] {
+    // color: $main-color;
+    background-color: $main-color;
+    border-radius: 5px;
+    border: none;
+    margin-left: 20px;
+    padding: 2px 10px;
+}

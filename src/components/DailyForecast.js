@@ -22,8 +22,11 @@ const DailyForecast = ({data}) => {
         }
     }
 
+
+
     const renderTemp = (temp) => {
         const result = temp.toFixed();
+        //avoid displaying "-0" temperature:
         if (result === '-0') {
             return Math.abs(result);
         }
@@ -34,7 +37,10 @@ const DailyForecast = ({data}) => {
         <div className='daily-forecast'>
             <p className='week-day'>{renderDayName()}</p>
             <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="weather-icon"/>
-            <p className='general'><span>{renderTemp(data.temp.day)}°C</span> <span>{renderTemp(data.temp.night)}°C</span></p>
+            <p className='general'>
+                <span>{renderTemp(data.temp.day)}°C</span> &nbsp;
+                <span>{renderTemp(data.temp.night)}°C</span>
+            </p>
             <p>Morning: {renderTemp(data.temp.morn)}°C</p>
             <p>Humidity: {data.humidity}%</p>
         </div>

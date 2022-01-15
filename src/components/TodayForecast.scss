@@ -1,2 +1,35 @@
 @import 'main.scss';
 
+.today-forecast {
+    padding: 20px 30px;
+    section {
+        display: flex;
+        main {
+            min-width: 20%;
+            .current {
+                display: flex;
+                align-items: center;
+                img {
+                    width: 80px;
+                }
+            }
+        }
+        .info {
+            margin-left: 30px;
+        }
+    }
+    .general {
+        font-weight: 600;
+
+        span:first-child {
+            color: $day-color;
+        }
+
+        span:last-child {
+            color: $night-color;
+        }
+    }
+    .hours24-forecast {
+        display: flex;
+    }
+}

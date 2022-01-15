@@ -1,25 +1,33 @@
 import './App.scss';
 import { useState, useEffect } from 'react';
-import DailyForecast from './components/DailyForecast';
 import TodayForecast from './components/TodayForecast';
+import DailyForecast from './components/DailyForecast';
+import CityInput from './components/CityInput';
 
 const App = () => {
   const [city, setCity] = useState('Yakutsk');
   const [cityCoord, setCityCoord] = useState(null);
   const [cityData, setCityData] = useState(null);
+  const [search, setSearch] = useState('');
+  const [cityTime, setCityTime] = useState(null);
 
   const apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
 
   useEffect(() => {
     getCityCoord();
+    setCityTime(null)
   }, [city])
 
   useEffect(() => {
     getCityData();
   }, [cityCoord])
 
+  useEffect(() => {
+      getCityTime();
+  }, [cityData])
+
   const getCityCoord = async () => {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${apiKey}`)
       .then(res => res.json())
       .then(data => {
         setCityCoord(data[0]);
@@ -36,6 +44,28 @@ const App = () => {
     }
   }
 
+  const getCityTime = async () => {
+    if (cityData) {
+      fetch(`http://worldtimeapi.org/api/timezone/${cityData.timezone}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setCityTime(data)
+      })
+      .catch(err => console.warn(err))
+    }
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    setCity(search);
+    setSearch('');
+  }
+
+  const handleChange = e => {
+    setSearch(e.target.value);
+  }
+
   const renderFiveDays = () => {
     const fiveDays = cityData.daily.slice(1,6);
     return (
@@ -50,12 +80,20 @@ const App = () => {
 
   return (
     <div className="App">
-      <div className='today'>
-        {cityData ? <TodayForecast data={cityData} location={cityCoord.name}/> : null}
-      </div>
-      <div className='forecast'>
-        {cityData ? renderFiveDays() : null}
-      </div>
+      <form onSubmit={e => handleSubmit(e)}>
+            <CityInput value={search} change={handleChange}/>
+            <input type="submit" value="Search" />
+      </form>
+      {cityData ? 
+      <>
+        <div className='today'>
+          <TodayForecast data={cityData} location={cityCoord.name} time={cityTime}/>
+        </div>
+        <div className='forecast'>
+          {renderFiveDays()}
+        </div>
+      </>
+      : null}
     </div>
   );
 }
