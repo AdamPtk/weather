@@ -1,6 +1,5 @@
 import './TodayForecast.scss';
 import HourlyForecast from './HourlyForecast';
-// import { useState, useEffect } from 'react';
 
 const TodayForecast = ({data, location, time}) => {
 
@@ -49,7 +48,6 @@ const TodayForecast = ({data, location, time}) => {
         return (
             arr24.map((el, i) => {
                 let hour;
-                let midnightPoint = 0;
                 if (currTime + i > 23) {
                     hour = Math.abs(24 - currTime - i);
                 }
@@ -61,13 +59,27 @@ const TodayForecast = ({data, location, time}) => {
         )
     }
 
+    const renderMeanValue = () => {
+        const scope = data.daily.slice(0,6);
+        const temp = scope.map(el => {
+            return el.temp.day;
+        })
+        const sum = temp.reduce((tot, el) => {
+            return tot + el
+        })
+        const meanValue = renderTemp(sum/6);
+
+        return meanValue
+    }
+
+    renderMeanValue();
 
     return (
         <div className='today-forecast'>
             <section>
                 <main>
                     <h1>{location} </h1>
-                    <h1>{renderDayName()}, {time ? renderTime(6) : null}</h1>
+                    <h1>{renderDayName()} {time ? renderTime(6) : null}</h1>
                     <div className='current'>
                         <img src={`https://openweathermap.org/img/wn/${data.hourly[0].weather[0].icon}@2x.png`} alt="weather-icon"/>
                         <h1>{renderTemp(data.current.temp)}<span>°C</span></h1>
@@ -79,8 +91,8 @@ const TodayForecast = ({data, location, time}) => {
                         <span>Night: {renderTemp(daily.temp.night)}°C</span>
                     </p>
                     <p>Morning: {renderTemp(daily.temp.morn)}°C</p>
-                    <p><i className="fas fa-long-arrow-alt-down"></i>Min: {renderTemp(daily.temp.min)}°C <i className="fas fa-long-arrow-alt-up"></i>Max: {renderTemp(daily.temp.max)}°C</p>
-                    <p>Mean: {renderTemp(daily.temp.min)}°C Mode: {renderTemp(daily.temp.max)}°C</p>
+                    <p><i className="fas fa-long-arrow-alt-down"></i> Min: {renderTemp(daily.temp.min)}°C <i className="fas fa-long-arrow-alt-up"></i> Max: {renderTemp(daily.temp.max)}°C</p>
+                    <p>Mean 6-day daily temperature: {renderMeanValue()}°C Mode: {renderTemp(daily.temp.max)}°C</p>
                     <p>Humidity: {daily.humidity}%</p>
                 </div>
             </section>

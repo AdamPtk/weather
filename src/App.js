@@ -15,7 +15,7 @@ const App = () => {
 
   useEffect(() => {
     getCityCoord();
-    setCityTime(null)
+    setCityTime(null);
   }, [city])
 
   useEffect(() => {
