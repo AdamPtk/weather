@@ -31,7 +31,7 @@ const App = () => {
   }, [cityData])
 
   const getCityCoord = async () => {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city},${countryCode}&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city},${countryCode}&appid=${apiKey}`)
       .then(res => res.json())
       .then(data => {
         setCityCoord(data[0]);
@@ -53,10 +53,9 @@ const App = () => {
 
   const getCityTime = async () => {
     if (cityData) {
-      fetch(`http://worldtimeapi.org/api/timezone/${cityData.timezone}`)
+      fetch(`https://worldtimeapi.org/api/timezone/${cityData.timezone}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         setCityTime(data)
       })
       .catch(err => console.warn(err))
@@ -67,7 +66,6 @@ const App = () => {
     e.preventDefault();
     if (!search || !countryCode) {
       setValidation(true);
-      // setSearch('')
     } else {
       setCityCoord(null);
       setCityData(null);
@@ -93,9 +91,6 @@ const App = () => {
       })
     )
   }
-
-  console.log(cityCoord);
-  console.log(cityData);
 
   return (
     <div className="App">

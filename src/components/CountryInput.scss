@@ -2,6 +2,7 @@
 
 .select-container {
     position: relative;
+    user-select: none;
 
     .select {
         color: $day-color;
@@ -29,7 +30,6 @@
         border-radius: 5px;
         overflow-y: auto;
         overflow-x: hidden;
-        user-select: none;
         &::-webkit-scrollbar {
             width: 3px;
         }

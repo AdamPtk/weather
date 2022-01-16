@@ -7,13 +7,16 @@ const CountryInput = ({valid, setValid, handleSelect}) => {
     const [showDropdown, setShowDropdown] = useState(false);
 
     useEffect(() => {
-        fetch('countryCodes.json')
+        getCountries();
+    }, [])
+
+    const getCountries = async () => {
+        fetch('https://AdamPtk.github.io/weather/countryCodes.json')
             .then(res => res.json())
             .then(data => {
                 setCountries(data);
             })
-    }, [])
-
+    }
 
     return  (
         <div className='select-container'>
@@ -23,7 +26,7 @@ const CountryInput = ({valid, setValid, handleSelect}) => {
         </div>
         {showDropdown &&
             <div className='select-countries'>
-                {countries.map((el, i) => {
+                {countries && countries.map((el, i) => {
                     return <div key={i}
                                 onClick={() => {
                                     handleSelect(el.code)

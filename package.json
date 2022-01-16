@@ -1,6 +1,6 @@
 {
   "name": "weather",
-  "homepage": "http://AdamPtk.github.io/weather",
+  "homepage": "https://AdamPtk.github.io/weather",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
