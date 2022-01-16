@@ -90,16 +90,19 @@ const App = () => {
         </form>
         <LocalClock />
       </header>
-      {cityData ? 
-      <>
-        <div className='today'>
-          <TodayForecast data={cityData} location={cityCoord.name} time={cityTime}/>
-        </div>
-        <div className='forecast'>
-          {renderFiveDays()}
-        </div>
-      </>
-      : null}
+
+      {cityData && cityCoord ? 
+        <>
+          <div className='today'>
+            <TodayForecast data={cityData} location={cityCoord.name} time={cityTime}/>
+          </div>
+          <div className='forecast'>
+            {renderFiveDays()}
+          </div>
+        </>
+      : 
+      <h1 className='error'>No such city, try different name</h1>
+      }
     </div>
   );
 }

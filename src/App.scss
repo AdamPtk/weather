@@ -49,4 +49,12 @@
         width: 100vw;
         padding: 30px 10vw;
     }
+
+    .error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: $bg-color;
+    }
 }
