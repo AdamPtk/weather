@@ -72,7 +72,58 @@ const TodayForecast = ({data, location, time}) => {
         return meanValue
     }
 
-    renderMeanValue();
+    const renderModeValue = () => {
+        const scope = data.daily.slice(0,6);
+        const temp = scope.map(el => {
+            return renderTemp(el.temp.day);
+        })
+
+        const mode = {};
+        let max = 0, count = 0;
+      
+        for(let i = 0; i < temp.length; i++) {
+          const item = temp[i];
+          
+          if(mode[item]) {
+            mode[item]++;
+          } else {
+            mode[item] = 1;
+          }
+          
+          if(count < mode[item]) {
+            max = item;
+            count = mode[item];
+          }
+        }
+
+        return max;
+    }
+
+    const mode = arr => {
+        const temp = arr.map(el => {
+            return renderTemp(el.temp.day);
+        })
+        const mode = {};
+        let max = 0, count = 0;
+      
+        for(let i = 0; i < temp.length; i++) {
+          const item = temp[i];
+          
+          if(mode[item]) {
+            mode[item]++;
+          } else {
+            mode[item] = 1;
+          }
+          console.log(mode)
+          
+          if(count < mode[item]) {
+            max = item;
+            count = mode[item];
+          }
+        }
+         
+        console.log(max);
+      };
 
     return (
         <div className='today-forecast'>
@@ -90,9 +141,10 @@ const TodayForecast = ({data, location, time}) => {
                         <span>Day: {renderTemp(daily.temp.day)}°C &nbsp;</span>
                         <span>Night: {renderTemp(daily.temp.night)}°C</span>
                     </p>
-                    <p>Morning: {renderTemp(daily.temp.morn)}°C</p>
+                    <p>Morning: {renderTemp(daily.temp.morn)}°C Evening: {renderTemp(daily.temp.eve)}°C</p>
                     <p><i className="fas fa-long-arrow-alt-down"></i> Min: {renderTemp(daily.temp.min)}°C <i className="fas fa-long-arrow-alt-up"></i> Max: {renderTemp(daily.temp.max)}°C</p>
-                    <p>Mean 6-day daily temperature: {renderMeanValue()}°C Mode: {renderTemp(daily.temp.max)}°C</p>
+                    <p>Mean 6-day daily temperature: {renderMeanValue()}°C</p>
+                    <p>Mode 6-day daily temperature: {renderModeValue()}°C</p>
                     <p>Humidity: {daily.humidity}%</p>
                 </div>
             </section>
