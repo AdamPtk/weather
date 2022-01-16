@@ -1,10 +1,15 @@
 import './CityInput.scss';
 
-const CityInput = ({value, change}) => {
+const CityInput = ({value, valid, change}) => {
     return  (
         <label>
             City:
-            <input type="text" value={value} onChange={e => change(e)}/>
+            <input 
+                type="text" 
+                value={value} 
+                onChange={e => change(e)}
+                placeholder={valid ? "Cannot be empty" : null}
+            />
         </label>
     )
 }
