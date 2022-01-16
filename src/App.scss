@@ -9,24 +9,30 @@
     font-family: 'Roboto', sans-serif;
     color: $main-color;
 
-    form {
-        background: $bg-color;
-        border-radius: 5px;
-        margin-top: 20px;
-        padding: 20px;
-        font-size: 20px;
-        input[type="submit"] {
-            color: $day-color;
-            background: $bg-color-2;
-            margin-left: 20px;
-            cursor: pointer;
-            padding: 2px 10px;
+    header {
+        @include flex-row;
+        padding: 20px 50px 0;
+        width: 100vw;
+        form {
+            background: $bg-color;
             border-radius: 5px;
-            border: none;
-            &:active {
-                box-shadow: 0 0 3px $main-color;
+            padding: 20px;
+            font-size: 20px;
+            input[type="submit"] {
+                color: $day-color;
+                background: $bg-color-2;
+                margin-left: 20px;
+                cursor: pointer;
+                padding: 2px 10px;
+                border-radius: 5px;
+                border: none;
+                &:active {
+                    box-shadow: 0 0 3px $main-color;
+                }
             }
         }
+
+
     }
 
     .today {

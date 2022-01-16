@@ -143,9 +143,11 @@ const TodayForecast = ({data, location, time}) => {
                     </p>
                     <p>Morning: {renderTemp(daily.temp.morn)}°C Evening: {renderTemp(daily.temp.eve)}°C</p>
                     <p><i className="fas fa-long-arrow-alt-down"></i> Min: {renderTemp(daily.temp.min)}°C <i className="fas fa-long-arrow-alt-up"></i> Max: {renderTemp(daily.temp.max)}°C</p>
+                    <p>Humidity: {daily.humidity}%</p>
+                </div>
+                <div className='averages-info'>
                     <p>Mean 6-day daily temperature: {renderMeanValue()}°C</p>
                     <p>Mode 6-day daily temperature: {renderModeValue()}°C</p>
-                    <p>Humidity: {daily.humidity}%</p>
                 </div>
             </section>
             <div className='hours24-forecast'>

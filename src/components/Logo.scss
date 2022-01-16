@@ -1,0 +1,9 @@
+@import 'main.scss';
+
+.logo {
+    font-family: 'Permanent Marker', cursive;
+    color: $day-color;
+    background: $bg-color;
+    padding: 7px 20px;
+    border-radius: 5px;
+}

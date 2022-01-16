@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import TodayForecast from './components/TodayForecast';
 import DailyForecast from './components/DailyForecast';
 import CityInput from './components/CityInput';
+import LocalClock from './components/LocalClock';
+import Logo from './components/Logo';
 
 const App = () => {
   const [city, setCity] = useState('Yakutsk');
@@ -80,10 +82,14 @@ const App = () => {
 
   return (
     <div className="App">
-      <form onSubmit={e => handleSubmit(e)}>
-            <CityInput value={search} change={handleChange}/>
-            <input type="submit" value="Search" />
-      </form>
+      <header>
+        <Logo />
+        <form onSubmit={e => handleSubmit(e)}>
+              <CityInput value={search} change={handleChange}/>
+              <input type="submit" value="Search" />
+        </form>
+        <LocalClock />
+      </header>
       {cityData ? 
       <>
         <div className='today'>
