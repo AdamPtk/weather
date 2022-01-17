@@ -1,18 +1,16 @@
 # Weather
 
-One-page weather React App created with OpenWeatherMap API. 
+One-page weather React App created with OpenWeatherMap and WorldTime APi. Jump in and check out 5-day weather forecast in your city or anywhere in the world!
 
-#### Tools & technologies:
-* React.JS (router, scroll, countup, paginate, visibility-sensor)
-* JavaScript
-* HTML/CSS/Sass
-* Firebase
+#### Displaying:
+* today's 24-hour forecast with current time including time zones and day saving time (DST),
+* 5 day forecast with general daily data
 
-#### In progress:
-* responsiveness
-* give-away form validation
-* firebase login n timeout
-* forgot password? component
+#### To run locally:
+* clone repository to your computer
+* **npm install** to install necessary dependencies
+* create an account on <a href="https://openweathermap.org/api">OpenWeather</a>
+* create **.env.local** file in root directory and 
 
 ### Check it out here:
 
