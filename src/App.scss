@@ -44,8 +44,9 @@
     }
 
     .forecast {
-        display: flex;
-        justify-content: space-between;
+        @include flex-row;
+        flex-wrap: wrap;
+        justify-content: space-around;
         background-color: $bg-color;
         width: 100vw;
         padding: 30px 10vw;
@@ -57,5 +58,55 @@
         left: 50%;
         transform: translate(-50%,-50%);
         color: $bg-color;
+    }
+
+    @media screen and (max-width: 1200px) {
+        header {
+            @include flex-col;
+            padding: 10px;
+            * {
+                font-size: 1rem;
+            }
+            .logo {
+                display: none;
+            }
+
+            form {
+                @include flex-col;
+
+                input[type="submit"],
+                .select {
+                    margin-top: 10px;
+                    margin-left: 0;
+                }
+            }
+
+            h1 {
+                display: none;
+            }
+        }
+        .today {
+            section {
+                @include flex-col;
+                align-items: flex-start;
+                .info,
+                .averages-info {
+                    margin-left: 0;
+                }
+            }
+            .hours24-forecast {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        form {
+            width: 100%;
+        }
+        .today {
+            width: 90%;
+            margin-bottom: 10px;
+        }
     }
 }

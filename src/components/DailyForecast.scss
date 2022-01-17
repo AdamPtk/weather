@@ -2,11 +2,9 @@
 
 .daily-forecast {
     @include flex-col;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
-    width: 15vw;
+    min-width: 240px;
     padding: 15px 0;
+    margin: 5px;
     border: 1px solid $main-color;
     border-radius: 5px;
 
