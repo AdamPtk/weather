@@ -1,6 +1,6 @@
 # Weather
 
-One-page weather React App created with OpenWeatherMap and WorldTime APi. Jump in and check out 5-day weather forecast in your city or anywhere in the world!
+Responsive one-page weather React App created with OpenWeatherMap and WorldTime APi. Jump in and check out 5-day weather forecast in your city or anywhere in the world!
 
 #### Displaying:
 * today's 24-hour forecast with current time including time zones and day saving time (DST),
