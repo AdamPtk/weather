@@ -17,4 +17,4 @@ One-page weather React App created with OpenWeatherMap and WorldTime APi. Jump i
 
 ### Check it out here:
 
-<a href="https://adamptk.github.io/weather"><img src="public/weather.png" alt="GiveAway" /></a>
+<a href="https://adamptk.github.io/weather" target="_blank"><img src="public/weather.png" alt="GiveAway" /></a>
