@@ -13,7 +13,7 @@ One-page weather React App created with OpenWeatherMap and WorldTime APi. Jump i
 * create **.env.local** file in root directory and paste: **REACT_APP_OPENWEATHER_API_KEY=`your_api_key`**
 * npm start
 
-##OR
+## OR
 
 ### Check it out here:
 
