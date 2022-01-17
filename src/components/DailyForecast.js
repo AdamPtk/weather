@@ -1,47 +1,26 @@
 import './DailyForecast.scss';
+import DayName from './atoms/DayName';
+import Temp from './atoms/Temp';
 
 const DailyForecast = ({data}) => {
 
-    const renderDayName = () => {
-        const date = new Date(data.dt * 1000);
-        switch(date.getDay()) {
-            case 0:
-                return 'Sun';
-            case 1:
-                return 'Mon';
-            case 2:
-                return 'Tue';
-            case 3:
-                return 'Wed';
-            case 4:
-                return 'Thu';
-            case 5:
-                return 'Fri';
-            case 6:
-                return 'Sat';
-        }
-    }
-
-
-
-    const renderTemp = (temp) => {
-        const result = temp.toFixed();
-        //avoid displaying "-0" temperature:
-        if (result === '-0') {
-            return Math.abs(result);
-        }
-        return result;
-    }
-
     return (
         <div className='daily-forecast'>
-            <p className='week-day'>{renderDayName()}</p>
+            <p className='week-day'>
+                <DayName value={data.dt} />
+            </p>
             <img src={`https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`} alt="weather-icon"/>
             <p className='general'>
-                <span>{renderTemp(data.temp.day)}°C</span> &nbsp;
-                <span>{renderTemp(data.temp.night)}°C</span>
+                <span className='day'>
+                    <Temp value={data.temp.day}/>&nbsp;
+                </span>
+                <span className='night'>
+                    <Temp value={data.temp.night}/>&nbsp;
+                </span>
             </p>
-            <p>Morning: {renderTemp(data.temp.morn)}°C</p>
+            <p>
+                Morning:&nbsp;
+                <Temp value={data.temp.morn}/></p>
             <p>Humidity: {data.humidity}%</p>
         </div>
     )

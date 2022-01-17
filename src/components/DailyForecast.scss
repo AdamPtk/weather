@@ -21,11 +21,11 @@
     .general {
         font-weight: 600;
 
-        span:first-child {
+        .day {
             color: $day-color;
         }
 
-        span:last-child {
+        .night {
             color: $night-color;
         }
     }

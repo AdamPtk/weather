@@ -12,6 +12,10 @@
                 img {
                     width: 80px;
                 }
+                span:last-child {
+                    color: $bg-color;
+                    cursor: pointer;
+                }
             }
         }
         .info,
@@ -23,11 +27,11 @@
     .general {
         font-weight: 600;
 
-        span:first-child {
+        .day {
             color: $day-color;
         }
 
-        span:last-child {
+        .night {
             color: $night-color;
         }
     }
