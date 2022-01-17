@@ -11,6 +11,9 @@ One-page weather React App created with OpenWeatherMap and WorldTime APi. Jump i
 * **npm install** to install necessary dependencies
 * create an account on <a href="https://openweathermap.org/api">OpenWeather</a>
 * create **.env.local** file in root directory and paste: **REACT_APP_OPENWEATHER_API_KEY=`your_api_key`**
+* npm start
+
+##OR
 
 ### Check it out here:
 
