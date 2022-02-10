@@ -5,7 +5,7 @@ Responsive one-page weather React App created with OpenWeatherMap and WorldTime 
 #### Displaying:
 * today's 24-hour forecast with current time including time zones and day saving time (DST),
 * 5 day forecast with general daily data,
-* celsius / fahrenheit degree depending on user preferences
+* celsius / fahrenheit degree switch depending on user preferences
 
 #### To run locally:
 * clone repository to your computer
